@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css"></link>
+</head>
+
+
+<body>
+<div id='app'></div>
+
+    <script>
+
+        //model
+        var personer= 0;
+        
+        //view
+        view();
+        function view(){
+            document.getElementById('app').innerHTML = `
+                <h1>CORONACOUNTER!</h1>
+                <div>Hvor mange har lov å komme inn i butikken her?</div>
+                <div>
+                    ${personer} 
+
+                </div>
+                <div>    
+                    <button onclick="opp(1)">↑</button>
+                    <button onclick="ned(1)">↓</button>
+                    <br>
+                    <button onclick="restart()">restart</button>
+                </div>   
+
+        `}
+
+        //controller
+        function opp(detgåroppellerned){
+           if (personer >= 0 && personer < 11){
+               personer += detgåroppellerned;
+            }
+        view();
+            if(personer == 11){
+               return (alert('NÅ ER DET FULT, VENNLIGST VENT'));
+               
+               
+    }}
+
+        function ned(detgåroppellerned){ 
+           if (personer >= 1){
+               personer -= detgåroppellerned;
+            } 
+        view();        
+    }
+
+        function restart(){
+           personer = 0;
+           view();
+    }
+
+        
+
+
+
+    </script>
+
+
+</body>
+</html>
